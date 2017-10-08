@@ -18,7 +18,9 @@
   </head>
 
   <body>
+
     <div class="container">
+
       <div class="masthead">
         <h3 class="text-muted">Jegybazar</h3>
 
@@ -28,7 +30,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav text-md-center nav-justified w-100">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
@@ -48,43 +50,91 @@
         </nav>
       </div>
 
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Jegyek bármikor, bárhol, bárhonnan!</h1>
-        <p class="lead">használd a jegybazárt és csereberélj jegyeket a legjobb bulikra!
-            Elfogyott? Az orrod előtt vitték el az utolsót? Ne aggódj, irány a jegybazár!
-        </p>
-        <p>
-            <a class="btn btn-lg btn-success" href="events.html" role="button">Nézzük az eseméneket</a>
-        </p>
+
+      <!--login form -->
+      <div class="row justify-content-center row-login-form">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+                
+      <!--Alert message -->
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                    Regelj be és már veheted is a jegyeket
+                </div>
+        <!--Alert message -->
+                    <div class="card border-secondary">
+                    <div class="card-header">Regisztráció</div>
+                        <div class="card-body">  
+                            <form id ="registerForm">
+                                <div class="form-group">
+                                  <label for="registerName">Név</label>
+                                  <input required name="registerName" type="text" class="form-control" id="registerName" placeholder="név">
+                                </div>
+                                <div class="form-group">
+                                  <label for="registerEmail">Email</label>
+                                  <input required name="registerEmail" type="email" class="form-control" id="registerEmail" placeholder="email">                         
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthDate">Születési idő</label>
+                                    <input name="registerBirthDate" type="date" class="form-control" id="birthDate" 
+                                    value="1999-09-10" min="1900-01-01" max="2000-01-01" required>
+                                </div>
+                                <div class="form-group">
+                                  <label class="custom-control custom-radio">
+                                    <input id="radio1" name="sex" type="radio" value="1" class="custom-control-input" checked>
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">fiú</span>
+                                  </label>
+                                  <label class="custom-control custom-radio">
+                                    <input id="radio2" name="sex" type="radio" value="2" class="custom-control-input " checked>
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">lány</span>
+                                  </label>
+                                </div>
+                                <div class="form-group">
+                                  <select name="lovation" class="custom-select">
+                                    <option value = "notset" selected>Milyen településen laksz?</option>
+                                    <option value="1">Főváros</option>
+                                    <option value="2">Megyeszékhely</option>
+                                    <option value="3">Kistelepülés</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="cherry-custom-file">
+                                        <input name="avatar" type="file" id="file2">
+                                        <span class="file-name">Válassz avatart!</span>
+                                      </label>
+                                </div>
+                                <div class="form-group">
+                                  <label for="registerPassword">Jelszó</label>
+                                  <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" 
+                                  title="kis, nagybetű, szám, legalább 8 karakter"
+                                   name="registerPassword" type="password" class="form-control" id="registerPassword" placeholder="jelszó" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="registerPassword2">Jelszó ismét</label>
+                                  <input name="registerPassword2" type="password" class="form-control" id="registerPassword2" placeholder="jelszó ismét" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Regisztráció</button>
+                              </form>
+                        </div>
+                    </div>
+            </div>
       </div>
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>Események</h2>
-          <p>Itt találod a legtöbb jó bulit, és keress, vagy adj el jegyeket a barátaidnak, vagy más felhasználóknak!</p>
-          <p><a class="btn btn-primary" href="events.html" role="button">Események &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>Jegyek</h2>
-          <p>Ha sietsz, egyből kezdheted a jegyek böngészésével is. Itt is tudsz keresen iaz események neve, vagy időpontja alapján</p>
-          <p><a class="btn btn-primary" href="tickets.html" role="button">Jegyek &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>Regisztráció</h2>
-          <p>Még nem regisztráltál? Akkor gyorsan tedd meg, mert a szolgáltatás csak tagoknak elérhető! Sőt, az újak értékes ajándékot kapnak tőlünk!</p>
-          <p><a class="btn btn-primary" href="register.html" role="button">Regisztráció &raquo;</a></p>
-        </div>
-      </div>
-
+ 
+      
+      <!--register form -->
       <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; Company 2017</p>
-      </footer>
 
     </div> <!-- /container -->
-
+    <div class="container footer-container">
+        <!-- Site footer -->
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+          </footer>
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -92,6 +142,10 @@
     <script src="lib/bootstrap/js/jquery-3.2.1.slim.min.js"></script>
     <script src="lib/bootstrap/js/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(".cherry-custom-file").on("change",function(ev)
+      {$(this).find(".file-name").html(ev.target.value.split("\\").pop());})
+    </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   </body>

@@ -54,10 +54,20 @@
       <div class="jumbotron">
         <h1>Események</h1>
         <p class="lead">Itt találod az események táblázatát. ha érdekel egy, akkor innen azonnal tovább tudsz ugrani a jegyvásárlásra. Jó szórakozást!</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
       </div>
 
+      <div class="row events-search-row">
+        <div class="col-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Keresés..." aria-label="Keresés">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </span>
+          </div>
+        </div>
+      </div>
       <!-- Example row of columns -->
+      <!--
       <div class="row">
             <table class="table table-striped table-responsive">
                     <thead>
@@ -94,14 +104,47 @@
                     </tbody>
                   </table>
       </div>
+    -->
 
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; Company 2017</p>
-      </footer>
+    <div class="card-deck events-card-deck">
+        <a href="tickets.html?event=1" class="card">
+            <img class="card-img-top" src="img/sziget.png" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Sziget Fesztivál</h4>
+              <p class="card-text">látogass el a 25 éves szigetre és bulizz a legjobb arcokkal!</p>
+              <p class="card-text"><small class="text-muted">2017.08.03</small></p>
+              <button  class="btn btn-link float-right">Tovább</button>
+            </div>
+          </a>
+          <a href="tickets.html?event=2" class="card">
+              <img class="card-img-top" src="img/diotoro.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Diótörő balett</h4>
+                <p class="card-text">Nézd meg a grandiózus balett előadást most elővételben!</p>
+                <p class="card-text"><small class="text-muted">2017.11.03</small></p>
+                <button  class="btn btn-link float-right">Tovább</button>
+              </div>
+            </a>
+            <a href="tickets.html?event=3" class="card">
+                <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Macskák</h4>
+                  <p class="card-text">Amerika házhoz jön ebben a nagyszerű és izgalmas musicalban.</p>
+                  <p class="card-text"><small class="text-muted">2017.12.22</small></p>
+                  <button  class="btn btn-link float-right">Tovább</button>
+                </div>
+              </a>
+    </div>
+
+
 
     </div> <!-- /container -->
-
+    <div class="container footer-container">
+        <!-- Site footer -->
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+          </footer>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -109,6 +152,21 @@
     <script src="lib/bootstrap/js/jquery-3.2.1.slim.min.js"></script>
     <script src="lib/bootstrap/js/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+      $(".events-search-row input").on("keyup", function(ev) {
+      $.each( $(".events-card-deck .card .card-title"), function(i, e)   {
+          var elem = $(e);
+          var search = ev.target.value.toLowerCase();
+          var content = elem.html().toLowerCase();
+          if ( content.indexOf(search) == -1 ) {
+            elem.parents(".card").hide();
+          } else {
+            elem.parents(".card").show();
+          }
+        });
+      });
+    </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   </body>

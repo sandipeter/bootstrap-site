@@ -3,20 +3,38 @@
 
 body {
     padding-top: 20px;
+    padding-bottom: 50px;
     font-family: 'Roboto', sans-serif;
+    position: Absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    min-height: 100%;
   }
   
-  .footer {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    margin-top: 40px;
-    border-top: 1px solid #eee;
-    /*position: fixed;*/
+  .container {
+    position: relative;
+  }
+
+  .footer-container {
+    position: absolute;
     bottom: 0;
-    left:40px;
-    right: 40px;
+    left: 0;
+    right: 0;
+
   }
-  
+
+  footer.footer {
+    padding: 15px 15px 15px 30px;
+    border-radius: .25rem!important;
+    border: 1px solid #e5e5e5;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
+    width: 100%;
+  }
+  footer.footer p{
+    margin: 0;
+  }
   /* Main marketing message and sign up button */
   .jumbotron {
     text-align: center;
@@ -67,10 +85,61 @@ body {
   }
 
   /* homepage elements */
-  .home-media-image {
-    width: 25%;
+  .home-media-icon {
+    font-size: 48px;
+    color:#6b6b6b;
   }
   /* loginpage */
   .row-login-form {
     margin-top: 50px;
   }
+
+
+.cherry-custom-file{
+  height: 32px;
+  background-color: #007bff;
+  width: 75%;
+  border-radius: 3px;
+  box-shadow: 0,0,3px;
+}
+
+.cherry-custom-file input{
+  height: 0;
+  visibility: hidden;
+}
+
+.cherry-custom-file .file-name{
+  position: relative;
+  top: -22px;
+  left: 10px;
+  color: aliceblue;
+}
+
+  /* event cards */
+  .events-card-deck .card {
+    box-shadow: 0 0 2px;
+    color:black;
+    position: relative;
+  }
+  .events-card-deck .card :hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 6px;
+    text-decoration: none;
+}
+.events-card-deck .card .btn-link:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+.events-card-deck .card .btn-link{
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+
+}
+.events-search-row{
+  margin-bottom: 15px;
+}
+
+.events-search-row buttom i{
+  transform: scale(-1,1);
+}

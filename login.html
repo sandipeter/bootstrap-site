@@ -52,14 +52,13 @@
 
 
 
-    </div>
 
       <!--login form -->
       <div class="row justify-content-center row-login-form">
             <div class="col-10 col-sm-8 col-md-6 col-lg-4">
                 
       <!--Alert message -->
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
@@ -67,12 +66,12 @@
                 </div>
         <!--Alert message -->
                     <div class="card border-secondary">
-                    <div class="card-header">Bejelentkezés</div>
+                        <div class="card-header">Bejelentkezés</div>
                         <div class="card-body">  
-                            <form id = loginForm novalidate>
+                            <form id = "loginForm" novalidate>
                                 <div class="form-group">
                                   <label for="loginEmail">Email</label>
-                                  <input name="loginEmail" type="email" class="form-control" id="loginEmail" placeholder="email">
+                                  <input title="hibás emailcím!" name="loginEmail" type="email" class="form-control" id="loginEmail" placeholder="email">
                                   <small id="emailHelp" class="form-text text-muted">Vigyázz az emailcímedre!</small>
                                 </div>
                                 <div class="form-group">
@@ -91,13 +90,16 @@
                     </div>
             </div>
       </div>
+
       <!--login form -->
-      <!-- Site footer -->
-      <footer class="footer">
+
+</div> <!-- /container -->
+<div class="container footer-container">
+    <!-- Site footer -->
+    <footer class="footer">
         <p>&copy; Company 2017</p>
       </footer>
-
-    </div> <!-- /container -->
+</div>
 
 
     <!-- Bootstrap core JavaScript
