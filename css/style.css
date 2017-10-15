@@ -114,12 +114,15 @@ body {
   left: 10px;
   color: aliceblue;
 }
-
+  .events-card-deck{
+    margin-bottom: 15px;
+  }
   /* event cards */
   .events-card-deck .card {
     box-shadow: 0 0 2px;
     color:black;
     position: relative;
+    padding: 0 0 10px 0;
   }
   .events-card-deck .card :hover{
     cursor: pointer;
@@ -136,10 +139,24 @@ body {
   bottom: 15px;
 
 }
-.events-search-row{
+.events-search-row, .tickets-search-row{
   margin-bottom: 15px;
 }
 
-.events-search-row buttom i{
+.events-search-row buttom i, .tickets-search-row button i{
   transform: scale(-1,1);
+}
+.ticket-table thead th[data-key]{
+  cursor: pointer;
+
+}
+
+.ticket-table thead th[data-key] i.fa.fa-sort-amount-asc,
+.ticket-table thead th[data-key] i.fa.fa-sort-amount-desc{
+  display:none;
+}
+
+.ticket-table thead th[data-key].asc i.fa.fa-sort-amount-asc,
+.ticket-table thead th[data-key].desc i.fa.fa-sort-amount-desc{
+  display:inline;
 }

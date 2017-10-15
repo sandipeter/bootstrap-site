@@ -50,70 +50,41 @@
         </nav>
       </div>
 
-            <!-- Jumbotron -->
-            <div class="jumbotron">
-              <h1>Jegyek bármikor, bárhol, bárhonnan!</h1>
-              <p class="lead">Licitálható jegyek listája</p>
-            </div>
 
-      <table class="table table-striped">
+      <h1>Licitálható jegyek listája</h1>
+      <div class="row tickets-search-row">
+          <div class="col-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Keresés..." aria-label="Keresés">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      <table class="table table-striped ticket-table">
         <thead class="thead-inverse">
           <tr>
-            <th style="min-width: 30%">Esemény neve</th>
-            <th>Időpont</th>
-            <th class="d-none d-md-table-cell">Eladó neve</th>
-            <th style="width: 16%" class="text-right d-none d-md-table-cell">Hány darab?</th>
+            <th>#</th>
+            <th data-key="event" style="min-width: 30%">
+              <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+              <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+              Esemény neve</th>
+            <th data-key="time">
+                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+                <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+              Időpont</th>
+            <th data-key="seller" class="d-none d-md-table-cell">
+                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+                <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>Eladó neve</th>
+            <th data-key="pcs" style="width: 16%" class="text-right d-none d-md-table-cell">
+                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+                <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>Hány darab?</th>
             <th style="width: 18%">Licitek megtekintése</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            
-            <td data-toggle="tooltip" data-html="true" 
-            title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
-            data-placement="bottom"><a href="event.html?id=1">Sziget Fesztivál</a></td>
-            <td>2017.08.03. 13:00</td>
-            <td class="d-none d-md-table-cell">Példa Jóska</td>
-            <td class="text-right d-none d-md-table-cell">3 db.</td>
-            <td><a href="bid.html?id=1">tovább a licithez</a></td>
-          </tr>
-          <tr>
-              <td data-toggle="tooltip" data-html="true" 
-              title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
-              data-placement="bottom"><a href="event.html?id=1">Diótörő Balett</a></td>
-            <td>2017.11.03</td>
-            <td class="d-none d-md-table-cell">Példa Jóska</td>
-            <td class="text-right d-none d-md-table-cell">3 db.</td>
-            <td><a href="bid.html?id=2">tovább a licithez</a></td>
-          </tr>
-          <tr>
-              <td data-toggle="tooltip" data-html="true" 
-              title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
-              data-placement="bottom"><a href="event.html?id=1">Macskák</a></td>
-            <td>2017.12.12</td>
-            <td class="d-none d-md-table-cell">Példa Jóska</td>
-            <td class="text-right d-none d-md-table-cell">3 db.</td>
-            <td><a href="bid.html?id=3">tovább a licithez</a></td>
-          </tr>
-          <tr>
-              <td data-toggle="tooltip" data-html="true" 
-              title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
-              data-placement="bottom"><a href="event.html?id=1">Sziget Fesztivál</a></td>
-            <td>2017.12.12</td>
-            <td class="d-none d-md-table-cell">Példa Jóska</td>
-            <td class="text-right d-none d-md-table-cell">3 db.</td>
-            <td><a href="bid.html?id=3">tovább a licithez</a></td>
-          </tr>
-          <tr>
-              <td data-toggle="tooltip" data-html="true" 
-              title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
-              data-placement="bottom"><a href="event.html?id=1">Sziget Fesztivál</a></td>
-            <td>2017.12.12</td>
-            <td class="d-none d-md-table-cell">Példa Jóska</td>
-            <td class="text-right d-none d-md-table-cell">3 db.</td>
-            <td><a href="bid.html?id=3">tovább a licithez</a></td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
 
       <!-- Site footer -->
@@ -124,16 +95,29 @@
         <footer class="footer">
             <p>&copy; Company 2017</p>
           </footer>
-</div>
+    </div>
+
+    <div class="templates" style="display: none;">
+      <table>
+        <tr class="ticket-row">
+          <td></td>
+          <td data-toggle="tooltip" data-html="true" 
+          title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
+          data-placement="bottom"><a href="event.html?id=1">Sziget Fesztivál</a></td>
+          <td>2017.08.03. 13:00</td>
+          <td class="d-none d-md-table-cell">Példa Jóska</td>
+          <td class="text-right d-none d-md-table-cell">3 db.</td>
+          <td><a href="bid.html?id=1">tovább a licithez</a></td>
+        </tr>
+      </table>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="lib/bootstrap/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="lib/bootstrap/js/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-      $(function () {$('[data-toggle="tooltip"]').tooltip()});
-    </script>
+    <script src="js/main.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
