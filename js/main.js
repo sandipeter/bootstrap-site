@@ -50,7 +50,7 @@ $(".cherry-custom-file").on("change",function(ev){
     $(this).find(".file-name").html(ev.target.value.split("\\").pop())
     ;})
 
-//tickets oldal
+
 $('[data-toggle="tooltip"]').tooltip();
 
 //tickets oldal

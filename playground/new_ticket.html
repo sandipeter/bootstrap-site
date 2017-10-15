@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="../../../../favicon.ico"> -->
+
+    <title>Jegybazar | Jegyek</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">Jegybazar</h3>
+      </div>
+      <form id = "new-ticket-form" novalidate>
+        <div class="form-group">
+          <label for="event-name">Az esemény megnevezése</label>
+          <input type="text" class="form-control" id="event-name" name="event" placeholder="Az esemény megnevezése" required>
+        </div>
+        <div class="form-group">
+            <label for="seller-name">Az eladó megnevezése</label>
+            <input type="text" class="form-control" id="seller-name" name="sellep" placeholder="Az eladó megnevezése" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Időpont</label>
+            <input type="datetime-local" class="form-control" id="time" name="time" placeholder="Időpont" required>
+        </div>
+        <div class="form-group">
+            <label for="pcs">Jegyek száma</label>
+            <input type="number" class="form-control" id="pcs" name="pcs" placeholder="Jegyek száma" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+
+      <!--adatok kiiratása - rész pre elem = nem formázott-->
+      <div id="ticket-list">
+        <pre></pre>     
+      </div>
+
+
+
+
+      <!-- Site footer -->
+    </div> <!-- /container -->
+
+    <div class="container footer-container">
+        <!-- Site footer -->
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+          </footer>
+    </div>
+
+    <div class="templates" style="display: none;">
+      <table>
+        <tr class="ticket-row">
+          <td></td>
+          <td data-toggle="tooltip" data-html="true" 
+          title="<strong>még 3 napig lehet licitálni!</strong><br/>Az esemény megtekintéséhez kattints ide!" 
+          data-placement="bottom"><a href="event.html?id=1">Sziget Fesztivál</a></td>
+          <td>2017.08.03. 13:00</td>
+          <td class="d-none d-md-table-cell">Példa Jóska</td>
+          <td class="text-right d-none d-md-table-cell">3 db.</td>
+          <td><a href="bid.html?id=1">tovább a licithez</a></td>
+        </tr>
+      </table>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/popper.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script type = "text/javascript">
+
+        function disableInputs(inputs){
+            inputs.prop('disabled',true)
+        }
+
+        function enableInputs(inputs){
+            inputs.prop('disabled',false)
+        }
+
+        function showAlert(beforeElem, type, text){
+            var formAlertId='form-alert';
+
+            $("#" + formAlertId).remove();  //előző törlése - biztos ami biztos
+
+            $('<div class="alert alert-'+type+'"id='+formAlertId+' role="alert">'+text+'</div>')
+            .insertBefore(beforeElem).fadeIn();
+
+            setTimeout(function(){
+                //$("#" + formAlertId).remove();      //ez után nem lehet remove, helyette:
+                $("#" + formAlertId).fadeOut(function(){
+                    $(this).remove();
+                }) 
+            },3000);
+        };
+
+        function refreshTicketList(){
+            // mint a lenti, csak egyszerűbb -URL-t kell átadni.
+            //A _sort-ot a szerver szolgáltatja
+            $.getJSON(RESTURL+"/tickets?_sort=id&order=desc").done(function(ticketList){
+                        //EZ === EZZEL:
+            //var json = {
+            //    "_sort" : "id",
+            //    "_order" : "desc"
+            //}
+             //ticket list gyereke + natív elem ! innert textet csak így megy
+                $('#ticket-list > pre')[0].innerText = JSON.stringify(ticketList, null,2)
+                // 0 és 2 csa kformázás
+
+            });
+    
+        }
+
+        var RESTURL ="http://localhost:3000";   //távoli szerver URL
+        $(document).ready(function(){
+
+            refreshTicketList() // első kiírás
+
+            $("#new-ticket-form").submit(function(event){
+                event.preventDefault();
+                var newTicketFormElem = $(this);        //jquery elem
+                var newTicketFormnativeElem = newTicketFormElem[0]; //böngésző native form elem
+                
+                //check html5 validation -  novalidate kell az alapértelmezett formázás leszedése miatt + required h köt. legyen
+                if(newTicketFormnativeElem.checkValidity()==true){
+                    //itt valid az űrlapom
+                    var serializedFormArray = newTicketFormElem.serializeArray();
+                    var data={};
+                    $(serializedFormArray).each(function(index,elem){
+                        data[elem['name']]=elem['value'];
+                    });
+                    
+                    var inputs = $('input',newTicketFormElem);   // = $("#new-ticket-form")
+                    disableInputs(inputs); //összes elem letiltása ajax hívás előtt - hogy alatta ne lehessen újraküldeni
+
+                    $.ajax({
+                        type:"POST",
+                        url: RESTURL+"/tickets",   //összefűz
+                        "data":data, //a névazonosság miatt kell az idézőjel
+                        dataType: 'json'
+                    }).done(function(returnData){   //a doneakkor hívódik meg, ha sikeres a kérés
+                        //console.log("returnData =>", returnData);
+                        newTicketFormElem.removeClass("was-validated")  //piros keret levétel reset után
+                        newTicketFormnativeElem.reset();
+                        enableInputs(inputs);
+                        showAlert(newTicketFormElem,'success','Sikeres Mentés!');
+                        refreshTicketList();
+                    }).fail(function(){
+                        alert("hiba a server elérésénél!");
+                        enableInputs(inputs);
+                        showAlert(newTicketFormElem,'warning','Hiba a serveren!');
+                    })
+                }
+                if(newTicketFormElem.hasClass("was-validated")==false)newTicketFormElem.addClass("was-validated");
+            })
+        });
+    </script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  </body>
+</html>

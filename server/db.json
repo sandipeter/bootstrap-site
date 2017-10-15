@@ -1,5 +1,4 @@
 {
-
   "tickets": [
     {
       "id": 1,
@@ -51,6 +50,48 @@
       "seller": "Nagy Gábor",
       "pcs": 5,
       "link": "licit/1"
-    } 
+    },
+    {
+      "event": "rtet",
+      "sellep": "tetre",
+      "time": "2017-10-06T12:12",
+      "pcs": "34",
+      "id": 7
+    },
+    {
+      "event": "test2",
+      "sellep": "elado2",
+      "time": "2017-10-04T12:00",
+      "pcs": "12",
+      "id": 8
+    },
+    {
+      "event": "test 3",
+      "sellep": "elado 3",
+      "time": "2017-10-04T12:12",
+      "pcs": "20",
+      "id": 9
+    },
+    {
+      "event": "teszt 3",
+      "sellep": "elado 4",
+      "time": "2017-10-27T12:12",
+      "pcs": "30",
+      "id": 10
+    },
+    {
+      "event": "teszt 3",
+      "sellep": "elado 3",
+      "time": "2017-10-14T12:12",
+      "pcs": "30",
+      "id": 11
+    },
+    {
+      "event": "teszt 4",
+      "sellep": "elado 4",
+      "time": "2017-10-07T12:00",
+      "pcs": "30",
+      "id": 12
+    }
   ]
 }
