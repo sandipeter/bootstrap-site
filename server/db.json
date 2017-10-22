@@ -1,4 +1,34 @@
 {
+  "events": [
+    {
+      "id": 1,
+      "title": "Sziget Fesztivál",
+      "description": "Látogass el a 25 éves Szigetre és bulizz a legjobb arcokkal",
+      "time": "2018-08-03",
+      "image": "img/sziget.png"
+    },
+    {
+      "id": 2,
+      "title": "Diótörő Balett",
+      "description": "Nézd meg a grandiőzus balett előadást most elővételben",
+      "time": "2018-08-03",
+      "image": "img/diotoro.jpg"
+    },
+    {
+      "title": "Efott",
+      "time": "2017-10-31",
+      "image": "img/sziget.png",
+      "description": "A logjobb buli.",
+      "id": 3
+    },
+    {
+      "title": "Macskák Musical",
+      "time": "2018-02-22",
+      "image": "img/macskak.jpg",
+      "description": "A világ leghíresebb Musicelje a legjobb előadóktól.",
+      "id": 4
+    }
+  ],
   "tickets": [
     {
       "id": 1,
@@ -52,46 +82,92 @@
       "link": "licit/1"
     },
     {
-      "event": "rtet",
-      "sellep": "tetre",
-      "time": "2017-10-06T12:12",
-      "pcs": "34",
-      "id": 7
+      "id": 7,
+      "eventId": 4,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Cserkó József - TEST",
+      "pcs": 2,
+      "link": "licit/1"
     },
     {
-      "event": "test2",
-      "sellep": "elado2",
-      "time": "2017-10-04T12:00",
-      "pcs": "12",
+      "event": "Balett mindenkinek",
+      "seller": "Kiss Péter",
+      "time": "2017-10-27T18:20",
+      "pcs": "1",
       "id": 8
     },
     {
-      "event": "test 3",
-      "sellep": "elado 3",
-      "time": "2017-10-04T12:12",
-      "pcs": "20",
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2018-08-15",
+      "seller": "Én",
+      "pcs": "1",
       "id": 9
     },
     {
-      "event": "teszt 3",
-      "sellep": "elado 4",
-      "time": "2017-10-27T12:12",
-      "pcs": "30",
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2017-10-31",
+      "seller": "Robi",
+      "pcs": "4",
       "id": 10
     },
     {
-      "event": "teszt 3",
-      "sellep": "elado 3",
-      "time": "2017-10-14T12:12",
-      "pcs": "30",
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2017-10-31",
+      "seller": "Nagy Géza",
+      "pcs": "4",
       "id": 11
     },
     {
-      "event": "teszt 4",
-      "sellep": "elado 4",
-      "time": "2017-10-07T12:00",
-      "pcs": "30",
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2018-07-22 18:00",
+      "seller": "Salakomotoros Gizi",
+      "pcs": "3",
       "id": 12
+    },
+    {
+      "event": "Diótörő balett",
+      "eventId": "2",
+      "time": "2018-07-22 18:00",
+      "seller": "én",
+      "pcs": "33",
+      "id": 13
+    },
+    {
+      "event": "tr",
+      "eventId": "1",
+      "time": "rwer",
+      "seller": "rwr",
+      "pcs": "2",
+      "id": 14
+    },
+    {
+      "event": "Sziget Fesztivál",
+      "eventId": "1",
+      "time": "2018-08-03",
+      "seller": "Robi",
+      "pcs": "4",
+      "id": 15
+    },
+    {
+      "event": "Sziget Fesztivál",
+      "eventId": "1",
+      "time": "2018-08-03",
+      "seller": "Géza",
+      "pcs": "54",
+      "id": 16
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2018.02.01",
+      "seller": "Nagy Géza",
+      "pcs": "5",
+      "id": 17
     }
   ]
 }

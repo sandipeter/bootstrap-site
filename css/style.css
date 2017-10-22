@@ -160,3 +160,46 @@ body {
 .ticket-table thead th[data-key].desc i.fa.fa-sort-amount-desc{
   display:inline;
 }
+
+/*validáció.*/
+.form-group.invalid input, 
+.form-group.invalid select, 
+.form-group.invalid textarea {
+  border-color: red;
+}
+
+.form-group.invalid .invalid-feedback {
+  display: block;
+}
+
+button.btn.file-chooser{
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  
+}
+
+.preview-holder img{
+  width: 250px;
+  margin: 10px auto;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #999;
+  border-width: 3px;
+}
+
+.preview-holder.big-image{
+  position: absolute;
+  background-color: rgba(0,0,0,0.2);
+  top: 0;
+  bottom: 0;
+  left :0;
+  right: 0;
+  z-index: 100001;    /*mélység - minél nagyobb, annál előrébb van*/
+}
+.preview-holder.big-image img{
+  width:90%;
+  left: 10%;
+}
